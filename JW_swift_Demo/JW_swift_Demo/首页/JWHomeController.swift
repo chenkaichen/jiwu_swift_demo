@@ -12,11 +12,9 @@ import SDWebImage
 class JWHomeController: UITableViewController {
 
     var headScrollView : UIScrollView?
-    
     var pageControl : UIPageControl?
     
     var timer : Timer?
-    
     var page : Int = 0
     
     // 获取屏幕宽度
@@ -26,17 +24,15 @@ class JWHomeController: UITableViewController {
     //定义广告视图高度
     let bannelViewHeight : CGFloat = CGFloat(400)
     
-    let houseArray = [HouseModel]()
-    
     let bannelViewModel = BannelViewModel()
     let houselistViewModel = HouseListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib.init(nibName: "JWHouseCell", bundle: nil), forCellReuseIdentifier: "JWHouseCell")
+        tableView.register(UINib.init(nibName: "JWHomeHouseCell", bundle: nil), forCellReuseIdentifier: "JWHomeHouseCell")
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 150
+        tableView.estimatedRowHeight = 200
         
         headScrollView = UIScrollView(frame: CGRect(x: 0, y: -bannelViewHeight, width: viewWidth, height: bannelViewHeight))
         
@@ -51,6 +47,7 @@ class JWHomeController: UITableViewController {
         loadHouseList()
     }
     
+    //MARK: 加载楼盘
     func loadHouseList(){
     
     houselistViewModel.loadHouseList(page: 0, isLoadUp: true) { (isSuccess) in
@@ -58,11 +55,9 @@ class JWHomeController: UITableViewController {
         self.tableView.reloadData()
         
         }
-    
-    
     }
 
-    //加载广告
+    //MARK: 加载广告
     func loadBannel(){
         
         bannelViewModel.loadBannelList { (isSuccess) in
@@ -88,7 +83,6 @@ class JWHomeController: UITableViewController {
             self.addTimer()
             
         }
-    
     }
     
     func nextBannel(){
@@ -108,8 +102,8 @@ class JWHomeController: UITableViewController {
         
     }
     
+    //MARK: 定时器相关
     func addTimer(){
-    
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(nextBannel), userInfo: nil, repeats: true)
         
     }
@@ -129,6 +123,7 @@ class JWHomeController: UITableViewController {
         
     }
     
+    //MARK: 监听scrollView滚动 决定顶部广告的拉伸和 广告视图的滚动
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if scrollView == tableView {
@@ -152,71 +147,33 @@ class JWHomeController: UITableViewController {
         }
         
         if scrollView == headScrollView {
-            
             pageControl?.currentPage = Int((headScrollView?.contentOffset.x)!) / Int(viewWidth)
             
         }
-        
     }
     
-    // MARK: - Table view data source
-
+    //MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return houselistViewModel.houseList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : JWHouseCell = tableView.dequeueReusableCell(withIdentifier: "JWHouseCell", for: indexPath) as! JWHouseCell
+        let cell : JWHomeHouseCell = tableView.dequeueReusableCell(withIdentifier: "JWHomeHouseCell", for: indexPath) as! JWHomeHouseCell
         
         cell.houseModel = houselistViewModel.houseList[indexPath.row]
         
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: houselistViewModel.houseList[indexPath.row])
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 100
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class BannelViewModel {
     
-    
     lazy var bannelList = [BannelModel]()
     
     func loadBannelList(completion:@escaping (_ isSuccess: Bool) ->()){
@@ -27,9 +26,6 @@ class BannelViewModel {
             
             completion(isSuccess)
             
-            
         }
     }
-    
-    
 }

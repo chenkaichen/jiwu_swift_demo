@@ -22,6 +22,8 @@ class HouseListViewModel {
         return
         }
         
+        print(array)
+        
         if isLoadUp == true{
             self.houseList = array
             

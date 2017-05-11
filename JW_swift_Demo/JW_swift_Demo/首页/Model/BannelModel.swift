@@ -9,38 +9,19 @@
 import UIKit
 
 class BannelModel: NSObject {
-    /**
-     *  app内部展示URl
-     */
+    
+    //app内部展示URl
     var bannerUrl: String?
-    
-    /**
-     *  首页展示广告图
-     */
+    //首页展示广告图
     var indexBanner: String?
-    
-    /**
-     *  是否需要登录
-     */
+    //是否需要登录
     var islogin: String?
-    
-    /**
-     *
-     */
+    //是否已被分享
     var isshareRed: String?
-    
-    /**
-     *  分享标题
-     */
+    //分享标题
     var shareTitle: String?
-    
-    /**
-     *  分享链接
-     */
+    //分享链接
     var shareUrl: String?
-    
-    /**
-     *  分享文本
-     */
+    //分享文本
     var sharecontent: String?
 }

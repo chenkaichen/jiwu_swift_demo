@@ -35,8 +35,6 @@ class HouseModel: NSObject {
     var favorable: String?
     
     
-    
-    
     /*奖励信息*/
 //    var awardinfo: String?
 //    

@@ -58,6 +58,47 @@
             </objects>
             <point key="canvasLocation" x="826" y="-412"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dU7-Co-3fK">
+            <objects>
+                <navigationController id="j11-Qs-Gq9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="enl-gz-HtI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="T66-yT-PHz" kind="relationship" relationship="rootViewController" id="nwc-GF-wmY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o64-jM-7eT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676" y="-1164"/>
+        </scene>
+        <!--详情-->
+        <scene sceneID="0r3-S0-ePb">
+            <objects>
+                <viewController id="T66-yT-PHz" customClass="JWHouseDetailController" customModule="JW_swift_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oKh-5Q-bGA"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Lg-5c-8gY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mfY-8Q-gMf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.56980232360000005" blue="0.5890454584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="详情" id="Aen-ej-avz">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="Run-tz-Wlr"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doBack" destination="Run-tz-Wlr" id="tMu-rT-mGf"/>
+                        <outlet property="navigationTitle" destination="Aen-ej-avz" id="yNE-eh-gPN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkQ-7D-PJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1394" y="-1162"/>
+        </scene>
         <!--动态-->
         <scene sceneID="5s2-2K-Myb">
             <objects>
@@ -100,7 +141,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2JX-mS-auy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92549020049999997" green="0.51226164139999997" blue="0.065628562020000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Psl-mb-dos">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -117,6 +158,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="动态详情" id="y1j-1Q-Auo"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="3ol-YN-Afj">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="刷新">
+                                <attributes>
+                                    <font key="NSFont" size="15" name=".PingFangSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1W-KN-5q8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,7 +246,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="60z-yq-ntk" customClass="JWHouseCell" customModule="JW_swift_Demo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="60z-yq-ntk" customClass="JWHomeHouseCell" customModule="JW_swift_Demo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="1" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="60z-yq-ntk" id="7J5-qn-4ax">
@@ -209,6 +261,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="首页" id="hgk-kM-ssw"/>
+                    <connections>
+                        <segue destination="j11-Qs-Gq9" kind="show" identifier="showDetail" id="4bd-yW-xiE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoK-DR-Bl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
