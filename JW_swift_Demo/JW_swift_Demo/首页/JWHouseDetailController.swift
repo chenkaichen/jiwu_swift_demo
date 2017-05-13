@@ -16,13 +16,9 @@ class JWHouseDetailController: UIViewController {
     
     override func performSegue(withIdentifier identifier: String, sender: Any?) {
         
-        
         navigationTitle.title = (sender as! HouseModel).bname
         
-        
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +31,7 @@ class JWHouseDetailController: UIViewController {
 
     func back (){
     
-    dismiss(animated: true) { 
-        
+    dismiss(animated: true) {
         
         }
     

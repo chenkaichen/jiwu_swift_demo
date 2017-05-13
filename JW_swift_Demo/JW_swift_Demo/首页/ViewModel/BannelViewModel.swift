@@ -2,7 +2,7 @@
 //  BannelViewModel.swift
 //  Swift_jiwuhui
 //
-//  Created by 陈开琛 on 2017/5/9.
+//  Created by 陈开琛 on 2017/5/11.
 //  Copyright © 2017年 陈开琛. All rights reserved.
 //
 

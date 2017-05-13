@@ -32,7 +32,6 @@
         <!--Root View Controller-->
         <scene sceneID="I8P-TX-kJQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qg-ZI-XPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Njr-pj-AjN" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZZJ-jE-0KY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -55,8 +54,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="F1H-85-cdW"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qg-ZI-XPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826" y="-412"/>
+            <point key="canvasLocation" x="595" y="-385"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dU7-Co-3fK">
@@ -72,7 +72,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o64-jM-7eT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676" y="-1164"/>
+            <point key="canvasLocation" x="595" y="-1193"/>
         </scene>
         <!--详情-->
         <scene sceneID="0r3-S0-ePb">
@@ -97,12 +97,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkQ-7D-PJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394" y="-1162"/>
+            <point key="canvasLocation" x="1301" y="-1194"/>
         </scene>
         <!--动态-->
         <scene sceneID="5s2-2K-Myb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wZl-vH-WX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="cHf-ri-96h" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Ma-Yq-HgZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -126,13 +125,14 @@
                     <navigationItem key="navigationItem" title="动态" id="E1Q-jD-1hX">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="3Uy-6l-6jK">
                             <connections>
-                                <segue destination="79D-f7-n6R" kind="push" id="Oam-dn-m3Y"/>
+                                <segue destination="79D-f7-n6R" kind="push" identifier="pushSegues" id="Oam-dn-m3Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wZl-vH-WX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="252"/>
+            <point key="canvasLocation" x="595" y="424"/>
         </scene>
         <!--动态详情-->
         <scene sceneID="0XS-dm-QB9">
@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92549020049999997" green="0.51226164139999997" blue="0.065628562020000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Psl-mb-dos">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hehe" id="Psl-mb-dos">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Psl-mb-dos" id="gJt-BG-LKN">
@@ -159,6 +159,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="动态详情" id="y1j-1Q-Auo"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="3ol-YN-Afj">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle">
                             <fragment content="刷新">
@@ -172,12 +173,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1W-KN-5q8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="246"/>
+            <point key="canvasLocation" x="1301" y="447"/>
         </scene>
         <!--我-->
         <scene sceneID="OyT-w5-YuG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2rr-60-8Uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="GC3-aM-vrE" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JS1-Rp-XqF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -200,8 +200,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="我" id="dad-48-2As"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rr-60-8Uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="1081"/>
+            <point key="canvasLocation" x="595" y="1270"/>
         </scene>
         <!--我-->
         <scene sceneID="OM6-d9-OB3">
@@ -218,7 +219,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTD-pq-UWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-111" y="1111"/>
+            <point key="canvasLocation" x="-137" y="1270"/>
         </scene>
         <!--动态-->
         <scene sceneID="O9c-2P-oxs">
@@ -235,7 +236,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6Q-UK-DsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-111" y="295"/>
+            <point key="canvasLocation" x="-137" y="447"/>
         </scene>
         <!--首页-->
         <scene sceneID="DRX-9B-9Ok">
@@ -246,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="60z-yq-ntk" customClass="JWHomeHouseCell" customModule="JW_swift_Demo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="JWHomeHouseCell" rowHeight="150" id="60z-yq-ntk" customClass="JWHomeHouseCell" customModule="JW_swift_Demo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="1" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="60z-yq-ntk" id="7J5-qn-4ax">
@@ -267,7 +268,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoK-DR-Bl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-136" y="-1164"/>
+            <point key="canvasLocation" x="-138" y="-1193"/>
         </scene>
         <!--信息-->
         <scene sceneID="Gvq-Hx-MDs">
@@ -284,7 +285,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVc-BN-GoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-111" y="-411"/>
+            <point key="canvasLocation" x="-138" y="-384"/>
         </scene>
     </scenes>
 </document>

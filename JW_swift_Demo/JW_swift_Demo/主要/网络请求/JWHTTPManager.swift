@@ -2,7 +2,7 @@
 //  JWHTTPManager.swift
 //  Swift_jiwuhui
 //
-//  Created by 陈开琛 on 2017/5/8.
+//  Created by 陈开琛 on 2017/5/11.
 //  Copyright © 2017年 陈开琛. All rights reserved.
 //
 
@@ -16,7 +16,6 @@ enum HTTPMethod {
 
 class JWHTTPManager: AFHTTPSessionManager {
 
-    
     static let sharedRequest : JWHTTPManager = {
         
         let tempHttp = JWHTTPManager()
@@ -48,11 +47,5 @@ class JWHTTPManager: AFHTTPSessionManager {
             post(URLString, parameters: parameters, progress: nil, success: success, failure: failure)
         
         }
-    
     }
-    
-    
-    
-    
-    
 }
