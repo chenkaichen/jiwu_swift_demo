@@ -6,33 +6,22 @@
 //  Copyright © 2017年 陈开琛. All rights reserved.
 //
 
-import Foundation
-
 class HouseListViewModel {
     
-    lazy var houseList = [HouseModel]()
+    lazy var houseList = [HouseListModel]()
     
-    func loadHouseList(page : Int64, isLoadUp : Bool, completion:@escaping (_ isSuccess: Bool) ->()){
-    
-    JWHTTPManager.sharedRequest.homeRequest(page: page) { (list, isSuccess) in
+    func loadHouseList(page : Int64, completion:@escaping (_ isSuccess: Bool) ->()){
         
-        guard let array = NSArray.yy_modelArray(with: HouseModel.self, json: list) as? [HouseModel] else {
-        completion(isSuccess)
+        JWHTTPManager.sharedRequest.houseListRequest(page: page) { (list, isSuccess) in
             
-        return
-        }
-        
-        print(array)
-        
-        if isLoadUp == true{
-            self.houseList = array
-            
-        }else{
+            guard let array = NSArray.yy_modelArray(with: HouseListModel.self, json: list) as? [HouseListModel] else {
+                completion(isSuccess)
+                
+                return
+            }
             self.houseList += array
-        
+            
+            completion(isSuccess)
         }
-        
-        completion(isSuccess)
-    }
     }
 }

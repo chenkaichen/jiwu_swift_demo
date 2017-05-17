@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqx-YW-cxw">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqx-YW-cxw" userLabel="仿导航栏">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <color key="backgroundColor" red="0.27450981740000002" green="0.48627451059999999" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -82,9 +83,19 @@
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-l0-PbW">
                     <rect key="frame" x="0.0" y="-150" width="375" height="150"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awd-Sx-sly" userLabel="下部分">
+                            <rect key="frame" x="0.0" y="75" width="375" height="75"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Awd-Sx-sly" secondAttribute="trailing" id="3bx-cm-Ym1"/>
+                        <constraint firstItem="Awd-Sx-sly" firstAttribute="leading" secondItem="ijh-l0-PbW" secondAttribute="leading" id="CNF-lF-zSN"/>
                         <constraint firstAttribute="height" constant="150" id="SSx-GL-eUR"/>
+                        <constraint firstItem="Awd-Sx-sly" firstAttribute="top" secondItem="ijh-l0-PbW" secondAttribute="centerY" id="X2d-cv-hid"/>
+                        <constraint firstAttribute="bottom" secondItem="Awd-Sx-sly" secondAttribute="bottom" id="laY-9R-PTY"/>
                     </constraints>
                 </view>
             </subviews>

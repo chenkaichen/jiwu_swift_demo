@@ -24,4 +24,9 @@ class BannelModel: NSObject {
     var shareUrl: String?
     //分享文本
     var sharecontent: String?
+    
+    override var description: String{
+    return yy_modelDescription()
+    
+    }
 }

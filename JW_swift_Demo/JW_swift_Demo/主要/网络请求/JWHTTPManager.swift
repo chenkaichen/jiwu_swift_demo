@@ -24,8 +24,6 @@ class JWHTTPManager: AFHTTPSessionManager {
     }()
     
     func httpRequest(method: HTTPMethod = .GET, URLString: String, parameters: [String : AnyObject], completion: @escaping (_ json: AnyObject ,_ isSuccess: Bool)->()){
-    
-        print(URLString)
         
         let success = { (task :URLSessionDataTask, json :Any?) -> () in
             
@@ -40,11 +38,19 @@ class JWHTTPManager: AFHTTPSessionManager {
         
         }
         
+        var tempDict = ["versionCode":"5.0","version":"4.0","key":"5ff5c01c406a9086c8a08fde047054c1"]
+        
+        for (key,value) in parameters {
+            
+            tempDict[key] = value as? String
+            
+        }
+        
         if method == .GET {
-            get(URLString, parameters: parameters, progress: nil, success: success, failure: failure)
+            get(URLString, parameters: tempDict, progress: nil, success: success, failure: failure)
             
         }else{
-            post(URLString, parameters: parameters, progress: nil, success: success, failure: failure)
+            post(URLString, parameters: tempDict, progress: nil, success: success, failure: failure)
         
         }
     }

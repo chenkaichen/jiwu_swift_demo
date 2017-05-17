@@ -32,9 +32,10 @@ class JWHomeHouseCell: UITableViewCell {
     //奖励说明背景视图
     @IBOutlet weak var commssionBaseView: UIView!
     
-    var houseModel : HouseModel? {
+    var houseModel : HouseListModel? {
         
         didSet {
+            
             //建筑图
             buildPathImageView.sd_setImage(with: URL(string : (houseModel?.buildPath)!))
             //建筑名

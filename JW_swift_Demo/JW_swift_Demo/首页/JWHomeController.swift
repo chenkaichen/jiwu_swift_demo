@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MJRefresh
 
 class JWHomeController: UITableViewController {
     
@@ -16,11 +17,13 @@ class JWHomeController: UITableViewController {
     
     var searchView : JWSearchView?
     
+    var homePage : Int64 = 0
+    
+    //搜索透明视图
     var transparentView : UIView?
     
-    
     var timer : Timer?
-    var page : Int = 0
+    var pageControPage : Int = 0
     
     // 获取屏幕宽度
     let viewWidth = UIScreen.main.bounds.width
@@ -32,8 +35,21 @@ class JWHomeController: UITableViewController {
     let bannelViewModel = BannelViewModel()
     let houselistViewModel = HouseListViewModel()
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let footer = MJRefreshAutoGifFooter()
+        
+        tableView.mj_footer = footer
+        footer.isAutomaticallyRefresh = false
+        
+        footer.setRefreshingTarget(self, refreshingAction: #selector(loadDownHouseList))
         
         loadBannel()
         
@@ -161,9 +177,23 @@ class JWHomeController: UITableViewController {
     //MARK: 加载楼盘
     func loadHouseList(){
         
-        houselistViewModel.loadHouseList(page: 0, isLoadUp: true) { (isSuccess) in
+        houselistViewModel.loadHouseList(page: homePage) { (isSuccess) in
             
             self.tableView.reloadData()
+            
+        }
+    }
+    
+    //上拉加载
+    func loadDownHouseList(){
+        
+        homePage += 1
+        
+        houselistViewModel.loadHouseList(page: homePage) { (isSuccess) in
+            
+            self.tableView.reloadData()
+            
+            self.tableView.mj_footer.endRefreshing()
             
         }
     }
@@ -171,17 +201,17 @@ class JWHomeController: UITableViewController {
     //下一页广告
     func nextBannel(){
         
-        page = (pageControl?.currentPage)!
+        pageControPage = (pageControl?.currentPage)!
         
-        if page == (bannelViewModel.bannelList.count - 1) {
-            page = 0
+        if pageControPage == (bannelViewModel.bannelList.count - 1) {
+            pageControPage = 0
             
         }else{
-            page += 1
+            pageControPage += 1
             
         }
         
-        headScrollView?.setContentOffset(CGPoint(x: CGFloat(page) * (headScrollView?.bounds.width)!, y: 0), animated: true)
+        headScrollView?.setContentOffset(CGPoint(x: CGFloat(pageControPage) * (headScrollView?.bounds.width)!, y: 0), animated: true)
         
     }
     
@@ -249,6 +279,12 @@ class JWHomeController: UITableViewController {
         }
     }
     
+    //跳转传值
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        (segue.destination as! JWHouseDetailController).fid = (sender as? HouseListModel)?.fid
+    }
+    
     //MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return houselistViewModel.houseList.count
@@ -263,6 +299,7 @@ class JWHomeController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         performSegue(withIdentifier: "showDetail", sender: houselistViewModel.houseList[indexPath.row])
         
     }

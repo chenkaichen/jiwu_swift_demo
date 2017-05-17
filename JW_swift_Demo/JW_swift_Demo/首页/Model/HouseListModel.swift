@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HouseModel: NSObject {
+class HouseListModel: NSObject {
     
     /*楼盘名 */
     var bname: String?
@@ -26,11 +26,18 @@ class HouseModel: NSObject {
     var commission: String?
     /*奖励说明*/
     var favorable: String?
+    /*楼盘详情Id*/
+    var fid: String?
     
     /*奖励信息*/
 //    var awardinfo: String?
 //    
 //    /*参与经纪人数*/
-//    var countCus: String?
+    //    var countCus: String?
+    
+    override var description: String{
+        return yy_modelDescription()
+        
+    }
 
 }

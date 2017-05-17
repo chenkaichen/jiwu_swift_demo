@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1017D01EC9CE6800034950 /* JWHouseDetailPicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1017CF1EC9CE6800034950 /* JWHouseDetailPicModel.swift */; };
 		0A3A04F71EC32C4C007B35E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A04F61EC32C4C007B35E6 /* AppDelegate.swift */; };
 		0A3A04F91EC32C4C007B35E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A04F81EC32C4C007B35E6 /* ViewController.swift */; };
 		0A3A04FC1EC32C4C007B35E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A04FA1EC32C4C007B35E6 /* Main.storyboard */; };
@@ -17,7 +18,7 @@
 		0A3A052D1EC374EA007B35E6 /* BannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A052B1EC374EA007B35E6 /* BannelViewModel.swift */; };
 		0A3A052E1EC374EA007B35E6 /* HouseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A052C1EC374EA007B35E6 /* HouseListViewModel.swift */; };
 		0A3A05311EC374F5007B35E6 /* BannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A052F1EC374F5007B35E6 /* BannelModel.swift */; };
-		0A3A05321EC374F5007B35E6 /* HouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A05301EC374F5007B35E6 /* HouseModel.swift */; };
+		0A3A05321EC374F5007B35E6 /* HouseListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A05301EC374F5007B35E6 /* HouseListModel.swift */; };
 		0A3A05381EC386B5007B35E6 /* JWHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A05371EC386B5007B35E6 /* JWHomeController.swift */; };
 		0A3A05421EC4346C007B35E6 /* JWHomeHouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A05411EC4346C007B35E6 /* JWHomeHouseCell.xib */; };
 		0A3A05441EC43964007B35E6 /* JWHomeHouseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A05431EC43964007B35E6 /* JWHomeHouseCell.swift */; };
@@ -25,10 +26,14 @@
 		0A7BB8FF1EC72EBB005C4C3A /* JWSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7BB8FE1EC72EBA005C4C3A /* JWSearchView.xib */; };
 		0A7BB9051EC754B5005C4C3A /* JWSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BB9041EC754B5005C4C3A /* JWSearchView.swift */; };
 		0A7BB9071EC77B81005C4C3A /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BB9061EC77B81005C4C3A /* extension.swift */; };
+		0A9565121EC85F0E0020E30B /* JWHouseDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9565111EC85F0E0020E30B /* JWHouseDetailModel.swift */; };
+		0A9565151EC86A580020E30B /* JWHouseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9565141EC86A580020E30B /* JWHouseDetailViewModel.swift */; };
 		8DA773CA17645EFB308DFFB0 /* Pods_JW_swift_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A04A69893B65CFEEAA563C6 /* Pods_JW_swift_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1017CE1EC99F5400034950 /* JW_swift_Demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JW_swift_Demo-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A1017CF1EC9CE6800034950 /* JWHouseDetailPicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWHouseDetailPicModel.swift; sourceTree = "<group>"; };
 		0A3A04F31EC32C4C007B35E6 /* JW_swift_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JW_swift_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3A04F61EC32C4C007B35E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A3A04F81EC32C4C007B35E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,8 +46,7 @@
 		0A3A052B1EC374EA007B35E6 /* BannelViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannelViewModel.swift; sourceTree = "<group>"; };
 		0A3A052C1EC374EA007B35E6 /* HouseListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseListViewModel.swift; sourceTree = "<group>"; };
 		0A3A052F1EC374F5007B35E6 /* BannelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannelModel.swift; sourceTree = "<group>"; };
-		0A3A05301EC374F5007B35E6 /* HouseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseModel.swift; sourceTree = "<group>"; };
-		0A3A05331EC3768E007B35E6 /* JW_swift_Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JW_swift_Demo-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A3A05301EC374F5007B35E6 /* HouseListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseListModel.swift; sourceTree = "<group>"; };
 		0A3A05371EC386B5007B35E6 /* JWHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JWHomeController.swift; path = "首页/JWHomeController.swift"; sourceTree = "<group>"; };
 		0A3A05411EC4346C007B35E6 /* JWHomeHouseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWHomeHouseCell.xib; sourceTree = "<group>"; };
 		0A3A05431EC43964007B35E6 /* JWHomeHouseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWHomeHouseCell.swift; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 		0A7BB8FE1EC72EBA005C4C3A /* JWSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWSearchView.xib; sourceTree = "<group>"; };
 		0A7BB9041EC754B5005C4C3A /* JWSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWSearchView.swift; sourceTree = "<group>"; };
 		0A7BB9061EC77B81005C4C3A /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		0A9565111EC85F0E0020E30B /* JWHouseDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWHouseDetailModel.swift; sourceTree = "<group>"; };
+		0A9565141EC86A580020E30B /* JWHouseDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWHouseDetailViewModel.swift; sourceTree = "<group>"; };
 		2A04A69893B65CFEEAA563C6 /* Pods_JW_swift_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JW_swift_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A741B252CD688364E29A2D /* Pods-JW_swift_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JW_swift_Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JW_swift_Demo/Pods-JW_swift_Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		E3E826DFC3DBB4B43781A1AD /* Pods-JW_swift_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JW_swift_Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JW_swift_Demo/Pods-JW_swift_Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,8 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				0A3A052F1EC374F5007B35E6 /* BannelModel.swift */,
-				0A3A05301EC374F5007B35E6 /* HouseModel.swift */,
-				0A3A05331EC3768E007B35E6 /* JW_swift_Demo-Bridging-Header.h */,
+				0A3A05301EC374F5007B35E6 /* HouseListModel.swift */,
+				0A9565111EC85F0E0020E30B /* JWHouseDetailModel.swift */,
+				0A1017CF1EC9CE6800034950 /* JWHouseDetailPicModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 			children = (
 				0A3A052B1EC374EA007B35E6 /* BannelViewModel.swift */,
 				0A3A052C1EC374EA007B35E6 /* HouseListViewModel.swift */,
+				0A9565141EC86A580020E30B /* JWHouseDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 		0A3A05191EC33532007B35E6 /* 工具（tool） */ = {
 			isa = PBXGroup;
 			children = (
+				0A1017CE1EC99F5400034950 /* JW_swift_Demo-Bridging-Header.h */,
 				0A7BB9061EC77B81005C4C3A /* extension.swift */,
 			);
 			path = "工具（tool）";
@@ -429,15 +438,18 @@
 				0A3A04F91EC32C4C007B35E6 /* ViewController.swift in Sources */,
 				0A3A05291EC374BC007B35E6 /* JWHTTPManager.swift in Sources */,
 				0A7BB9051EC754B5005C4C3A /* JWSearchView.swift in Sources */,
+				0A9565121EC85F0E0020E30B /* JWHouseDetailModel.swift in Sources */,
 				0A3A052A1EC374BC007B35E6 /* JWHTTPManager+Extension.swift in Sources */,
 				0A3A05461EC4A7D4007B35E6 /* JWHouseDetailController.swift in Sources */,
 				0A3A05381EC386B5007B35E6 /* JWHomeController.swift in Sources */,
-				0A3A05321EC374F5007B35E6 /* HouseModel.swift in Sources */,
+				0A3A05321EC374F5007B35E6 /* HouseListModel.swift in Sources */,
 				0A7BB9071EC77B81005C4C3A /* extension.swift in Sources */,
 				0A3A05311EC374F5007B35E6 /* BannelModel.swift in Sources */,
+				0A1017D01EC9CE6800034950 /* JWHouseDetailPicModel.swift in Sources */,
 				0A3A04F71EC32C4C007B35E6 /* AppDelegate.swift in Sources */,
 				0A3A052E1EC374EA007B35E6 /* HouseListViewModel.swift in Sources */,
 				0A3A05441EC43964007B35E6 /* JWHomeHouseCell.swift in Sources */,
+				0A9565151EC86A580020E30B /* JWHouseDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +581,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chenkaichen.JW-swift-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "JW_swift_Demo/首页/Model/JW_swift_Demo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "JW_swift_Demo/主要/工具（tool）/JW_swift_Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -586,7 +598,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chenkaichen.JW-swift-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "JW_swift_Demo/首页/Model/JW_swift_Demo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "JW_swift_Demo/主要/工具（tool）/JW_swift_Demo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

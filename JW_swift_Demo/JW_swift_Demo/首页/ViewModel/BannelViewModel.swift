@@ -6,15 +6,13 @@
 //  Copyright © 2017年 陈开琛. All rights reserved.
 //
 
-import UIKit
-
 class BannelViewModel {
     
     lazy var bannelList = [BannelModel]()
     
     func loadBannelList(completion:@escaping (_ isSuccess: Bool) ->()){
         
-        JWHTTPManager.sharedRequest.posterRequest { (list, isSuccess) in
+        JWHTTPManager.sharedRequest.bannelRequest { (list, isSuccess) in
             
             guard let array = NSArray.yy_modelArray(with: BannelModel.self, json: list) as? [BannelModel] else {
                 completion(isSuccess)
