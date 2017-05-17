@@ -19,6 +19,7 @@ class JWHTTPManager: AFHTTPSessionManager {
     static let sharedRequest : JWHTTPManager = {
         
         let tempHttp = JWHTTPManager()
+        tempHttp.requestSerializer.timeoutInterval = 15
         tempHttp.responseSerializer.acceptableContentTypes?.insert("text/html")
         return tempHttp
     }()

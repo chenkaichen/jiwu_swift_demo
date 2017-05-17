@@ -70,7 +70,7 @@ class JWHomeController: UITableViewController {
         headScrollView?.delegate = self
         headScrollView?.showsHorizontalScrollIndicator = false
         headScrollView?.isPagingEnabled = true
-        tableView.contentInset = UIEdgeInsets(top: bannelViewHeight, left: 0, bottom: 50, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: bannelViewHeight, left: 0, bottom: 0, right: 0)
         tableView.addSubview(headScrollView!)
         
         //从网络请求数据
@@ -106,12 +106,9 @@ class JWHomeController: UITableViewController {
         //
         //        queue.async {
         
+        //        }
         
-        transparentView = UIView()
-        transparentView?.x = 0
-        transparentView?.width = viewWidth
-        transparentView?.height = tableView.height
-        transparentView?.y = -bannelViewHeight
+        transparentView = UIView(frame: CGRect(x: 0, y: -bannelViewHeight, width: viewWidth, height: tableView.height))
         
         transparentView?.backgroundColor = UIColor.black
         transparentView?.alpha = 0.8
@@ -147,10 +144,7 @@ class JWHomeController: UITableViewController {
                     UIView.animate(withDuration: 0.2, animations: {
                         self.transparentView?.alpha = 0.8
                     })
-                    
                 }
-                
-                
             }else{
                 let alterViewController = UIAlertView(title: "暂时没做", message: nil, delegate: self, cancelButtonTitle: "返回")
                 
@@ -159,10 +153,6 @@ class JWHomeController: UITableViewController {
             }
             
         }
-        
-        
-        //        }
-        
     }
     
     func transparentViewClick(sender : UITapGestureRecognizer){

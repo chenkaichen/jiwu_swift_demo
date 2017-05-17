@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="khB-RT-ua1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="khB-RT-ua1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -283,7 +283,7 @@
             <objects>
                 <navigationController id="8qY-AT-GQj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" id="hMP-7o-gki"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sJy-Pm-Sfa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sJy-Pm-Sfa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -298,7 +298,7 @@
         <!--首页-->
         <scene sceneID="DRX-9B-9Ok">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="3Hq-1n-B94" customClass="JWHomeController" customModule="JW_swift_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="3Hq-1n-B94" customClass="JWHomeController" customModule="JW_swift_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="f2f-il-FMe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
