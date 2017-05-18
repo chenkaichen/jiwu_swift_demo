@@ -23,6 +23,11 @@
 		0A3A05421EC4346C007B35E6 /* JWHomeHouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A05411EC4346C007B35E6 /* JWHomeHouseCell.xib */; };
 		0A3A05441EC43964007B35E6 /* JWHomeHouseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A05431EC43964007B35E6 /* JWHomeHouseCell.swift */; };
 		0A3A05461EC4A7D4007B35E6 /* JWHouseDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A05451EC4A7D4007B35E6 /* JWHouseDetailController.swift */; };
+		0A4EACF21ECD8B4F00A07036 /* JWDynamicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EACF11ECD8B4F00A07036 /* JWDynamicController.swift */; };
+		0A4EACF41ECD902800A07036 /* JWDynamicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EACF31ECD902800A07036 /* JWDynamicViewModel.swift */; };
+		0A4EACF61ECD906600A07036 /* JWDynamicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EACF51ECD906600A07036 /* JWDynamicModel.swift */; };
+		0A4EACFB1ECDA27F00A07036 /* JWDynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EACF91ECDA27F00A07036 /* JWDynamicCell.swift */; };
+		0A4EACFC1ECDA27F00A07036 /* JWDynamicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A4EACFA1ECDA27F00A07036 /* JWDynamicCell.xib */; };
 		0A7BB8FF1EC72EBB005C4C3A /* JWSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7BB8FE1EC72EBA005C4C3A /* JWSearchView.xib */; };
 		0A7BB9051EC754B5005C4C3A /* JWSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BB9041EC754B5005C4C3A /* JWSearchView.swift */; };
 		0A7BB9071EC77B81005C4C3A /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BB9061EC77B81005C4C3A /* extension.swift */; };
@@ -51,6 +56,11 @@
 		0A3A05411EC4346C007B35E6 /* JWHomeHouseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWHomeHouseCell.xib; sourceTree = "<group>"; };
 		0A3A05431EC43964007B35E6 /* JWHomeHouseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWHomeHouseCell.swift; sourceTree = "<group>"; };
 		0A3A05451EC4A7D4007B35E6 /* JWHouseDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JWHouseDetailController.swift; path = "首页/JWHouseDetailController.swift"; sourceTree = "<group>"; };
+		0A4EACF11ECD8B4F00A07036 /* JWDynamicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWDynamicController.swift; sourceTree = "<group>"; };
+		0A4EACF31ECD902800A07036 /* JWDynamicViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWDynamicViewModel.swift; sourceTree = "<group>"; };
+		0A4EACF51ECD906600A07036 /* JWDynamicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWDynamicModel.swift; sourceTree = "<group>"; };
+		0A4EACF91ECDA27F00A07036 /* JWDynamicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWDynamicCell.swift; sourceTree = "<group>"; };
+		0A4EACFA1ECDA27F00A07036 /* JWDynamicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWDynamicCell.xib; sourceTree = "<group>"; };
 		0A7BB8FE1EC72EBA005C4C3A /* JWSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWSearchView.xib; sourceTree = "<group>"; };
 		0A7BB9041EC754B5005C4C3A /* JWSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWSearchView.swift; sourceTree = "<group>"; };
 		0A7BB9061EC77B81005C4C3A /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
@@ -117,6 +127,7 @@
 				0A3A05091EC33532007B35E6 /* Model */,
 				0A3A050A1EC33532007B35E6 /* View */,
 				0A3A050B1EC33532007B35E6 /* ViewModel */,
+				0A4EACF11ECD8B4F00A07036 /* JWDynamicController.swift */,
 			);
 			path = "动态";
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 		0A3A05091EC33532007B35E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A4EACF51ECD906600A07036 /* JWDynamicModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +143,8 @@
 		0A3A050A1EC33532007B35E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0A4EACF91ECDA27F00A07036 /* JWDynamicCell.swift */,
+				0A4EACFA1ECDA27F00A07036 /* JWDynamicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,6 +152,7 @@
 		0A3A050B1EC33532007B35E6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0A4EACF31ECD902800A07036 /* JWDynamicViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -375,6 +390,7 @@
 				0A3A05011EC32C4C007B35E6 /* LaunchScreen.storyboard in Resources */,
 				0A3A04FE1EC32C4C007B35E6 /* Assets.xcassets in Resources */,
 				0A7BB8FF1EC72EBB005C4C3A /* JWSearchView.xib in Resources */,
+				0A4EACFC1ECDA27F00A07036 /* JWDynamicCell.xib in Resources */,
 				0A3A04FC1EC32C4C007B35E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,15 +454,19 @@
 				0A3A04F91EC32C4C007B35E6 /* ViewController.swift in Sources */,
 				0A3A05291EC374BC007B35E6 /* JWHTTPManager.swift in Sources */,
 				0A7BB9051EC754B5005C4C3A /* JWSearchView.swift in Sources */,
+				0A4EACFB1ECDA27F00A07036 /* JWDynamicCell.swift in Sources */,
 				0A9565121EC85F0E0020E30B /* JWHouseDetailModel.swift in Sources */,
 				0A3A052A1EC374BC007B35E6 /* JWHTTPManager+Extension.swift in Sources */,
 				0A3A05461EC4A7D4007B35E6 /* JWHouseDetailController.swift in Sources */,
+				0A4EACF41ECD902800A07036 /* JWDynamicViewModel.swift in Sources */,
 				0A3A05381EC386B5007B35E6 /* JWHomeController.swift in Sources */,
 				0A3A05321EC374F5007B35E6 /* HouseListModel.swift in Sources */,
+				0A4EACF21ECD8B4F00A07036 /* JWDynamicController.swift in Sources */,
 				0A7BB9071EC77B81005C4C3A /* extension.swift in Sources */,
 				0A3A05311EC374F5007B35E6 /* BannelModel.swift in Sources */,
 				0A1017D01EC9CE6800034950 /* JWHouseDetailPicModel.swift in Sources */,
 				0A3A04F71EC32C4C007B35E6 /* AppDelegate.swift in Sources */,
+				0A4EACF61ECD906600A07036 /* JWDynamicModel.swift in Sources */,
 				0A3A052E1EC374EA007B35E6 /* HouseListViewModel.swift in Sources */,
 				0A3A05441EC43964007B35E6 /* JWHomeHouseCell.swift in Sources */,
 				0A9565151EC86A580020E30B /* JWHouseDetailViewModel.swift in Sources */,

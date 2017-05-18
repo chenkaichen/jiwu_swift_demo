@@ -54,13 +54,9 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate {
             
             self.navigationItem.title = self.houseDetailViewModel.houseDetailModel.bname!
             
-            self.buildImage.setImageWith(URL(string: self.houseDetailViewModel.houseDetailModel.path!)!)
+//            self.buildImage.setImageWith(URL(string: self.houseDetailViewModel.houseDetailModel.path!)!)
             
-            let url = URL(string: self.houseDetailViewModel.houseDetailModel.buildpath!)
-            let request = URLRequest(url: url!)
-            self.deTailwebView?.load(request)
-            
-//            webView.load(URLRequest(url: URL(string: self.houseDetailViewModel.houseDetailModel.buildpath!)!))
+            self.deTailwebView?.load(URLRequest(url: URL(string: self.houseDetailViewModel.houseDetailModel.buildpath!)!))
             
         }
         
@@ -73,15 +69,18 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate {
     }
     
     //MARK: WKWebView代理
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         
-        print(webView.url?.absoluteString)
+        let alert = UIAlertView(title: "请求错误", message: error.localizedDescription, delegate: self, cancelButtonTitle: "返回")
+        alert.show()
+        
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
         if tempArr.contains((webView.url?.absoluteString)!) == false{
             tempArr.append((webView.url?.absoluteString)!)
             pages += 1
-            
-            print("come to here    ===== \(pages)")
         
         }
         
@@ -93,13 +92,9 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate {
     
     func backUp(){
         
-        print("come to here   backUp ===== \(pages)")
-        
         if pages > 1 {
             pages -= 1
             deTailwebView?.goBack()
-            
-            print("come to here   ==------- ===== \(pages)")
         
         }else{
             

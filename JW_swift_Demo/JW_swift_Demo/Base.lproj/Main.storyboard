@@ -20,8 +20,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="8qY-AT-GQj" kind="relationship" relationship="viewControllers" id="hLM-ew-kUd"/>
-                        <segue destination="aBG-JF-q48" kind="relationship" relationship="viewControllers" id="ZHP-iL-EMx"/>
                         <segue destination="O7E-aj-I4G" kind="relationship" relationship="viewControllers" id="M7P-yd-faK"/>
+                        <segue destination="aBG-JF-q48" kind="relationship" relationship="viewControllers" id="ZHP-iL-EMx"/>
                         <segue destination="Cca-gJ-uHP" kind="relationship" relationship="viewControllers" id="VSY-P1-n6j"/>
                     </connections>
                 </tabBarController>
@@ -142,17 +142,17 @@
         <!--动态-->
         <scene sceneID="5s2-2K-Myb">
             <objects>
-                <tableViewController id="cHf-ri-96h" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Ma-Yq-HgZ">
+                <tableViewController id="cHf-ri-96h" customClass="JWDynamicController" customModule="JW_swift_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Ma-Yq-HgZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ZmZ-H4-Shv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="JWDynamicCell" id="ZmZ-H4-Shv" customClass="JWDynamicCell" customModule="JW_swift_Demo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZmZ-H4-Shv" id="D6b-Ir-Oev">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -172,7 +172,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZl-vH-WX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="595" y="424"/>
+            <point key="canvasLocation" x="593" y="447"/>
         </scene>
         <!--动态详情-->
         <scene sceneID="0XS-dm-QB9">

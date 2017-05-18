@@ -39,7 +39,7 @@ class JWHTTPManager: AFHTTPSessionManager {
         
         }
         
-        var tempDict = ["versionCode":"5.0","version":"4.0","key":"5ff5c01c406a9086c8a08fde047054c1"]
+        var tempDict = ["versionCode" : "533" , "key" : "6f0ef0be6cf3a14a6d8132476835c9d1"]
         
         for (key,value) in parameters {
             
