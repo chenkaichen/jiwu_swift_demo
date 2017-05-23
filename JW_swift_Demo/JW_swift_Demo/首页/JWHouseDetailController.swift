@@ -4,12 +4,12 @@
 //
 //  Created by 陈开琛 on 2017/5/11.
 //  Copyright © 2017年 陈开琛. All rights reserved.
-//
+//  楼盘详情
 
 import UIKit
 import WebKit
 
-class JWHouseDetailController: UIViewController,WKNavigationDelegate {
+class JWHouseDetailController: UIViewController,WKNavigationDelegate,UIScrollViewDelegate {
 
     @IBOutlet weak var buildImage: UIImageView!
     @IBOutlet weak var navigationBaseView: UIView!
@@ -17,6 +17,8 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate {
     var fid : String?
     
     var pages : Int64 = 0
+    
+    var tempOffsetY : CGFloat = 0.0
     
     let houseDetailViewModel = JWHouseDetailViewModel()
     
@@ -37,9 +39,9 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate {
         
         deTailwebView = WKWebView(frame: view.frame)
         deTailwebView?.navigationDelegate = self
-        view.addSubview(deTailwebView!)
+        deTailwebView?.scrollView.delegate = self
         
-        navigationBaseView.alpha = 0
+        view.insertSubview(deTailwebView!, belowSubview: navigationBaseView)
         
         // 1、设置导航栏标题属性：设置标题颜色
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
@@ -78,15 +80,19 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
-        if tempArr.contains((webView.url?.absoluteString)!) == false{
-            tempArr.append((webView.url?.absoluteString)!)
-            pages += 1
-        
-        }
-        
         webView.evaluateJavaScript("temptop = document.getElementsByClassName('top-pop')[0];temptop.parentNode.removeChild(temptop);", completionHandler: nil)
         
         webView.evaluateJavaScript("tempNav = document.getElementsByTagName('nav')[0]; tempNav.parentElement.removeChild(tempNav);", completionHandler: nil)
+        
+        if tempArr.contains((webView.url?.absoluteString)!) == false{
+            tempArr.append((webView.url?.absoluteString)!)
+            pages += 1
+            
+            if pages > 1 {
+                navigationBaseView.alpha = 1
+                webView.scrollView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+            }
+        }
         
     }
     
@@ -96,12 +102,28 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate {
             pages -= 1
             deTailwebView?.goBack()
         
+            if pages == 1 {
+                deTailwebView?.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                
+            }
+            navigationBaseView.alpha = tempOffsetY / 64.0
+            
         }else{
             
             self.navigationController?.popViewController(animated: true)
         
         }
     
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if pages  == 1 {
+            
+            tempOffsetY = scrollView.contentOffset.y
+            navigationBaseView.alpha = tempOffsetY / 64.0
+        }
+        
     }
     
     

@@ -4,27 +4,26 @@
 //
 //  Created by 陈开琛 on 2017/5/14.
 //  Copyright © 2017年 陈开琛. All rights reserved.
-//
+//  UIView快捷获取或修改属性
 
 import Foundation
 import UIKit
 
 extension UIView{
-
+    
     //x
     var x : CGFloat!{
-    
+        
         get {
             return frame.origin.x
-        
+            
         }
-    
+        
         set(newValue) {
             var tempFrame : CGRect = frame
             tempFrame.origin.x = newValue
             frame = tempFrame
         }
-    
     }
     
     // y
@@ -40,7 +39,6 @@ extension UIView{
             tempFrame.origin.y = newValue
             frame = tempFrame
         }
-        
     }
     
     // width
@@ -56,7 +54,6 @@ extension UIView{
             tempFrame.size.width = newValue
             frame = tempFrame
         }
-        
     }
     
     // height
@@ -72,7 +69,6 @@ extension UIView{
             tempFrame.size.height = newValue
             frame = tempFrame
         }
-        
     }
     
     // centerX
@@ -86,7 +82,6 @@ extension UIView{
         set(newValue) {
             center = CGPoint(x: newValue, y: center.y)
         }
-        
     }
     
     // centerY
@@ -99,6 +94,7 @@ extension UIView{
         
         set(newValue) {
             center = CGPoint(x: center.x, y: newValue)
+            
         }
         
     }
@@ -114,7 +110,6 @@ extension UIView{
         set(newValue) {
             
         }
-        
     }
     
     // bottom
@@ -126,12 +121,11 @@ extension UIView{
         }
         
         set(newValue) {
+            
         }
-        
     }
     
     //coordinate
-    
     var coordinate : CGPoint{
         
         get {
@@ -146,7 +140,5 @@ extension UIView{
             frame = tempFrame
             
         }
-        
     }
-
 }

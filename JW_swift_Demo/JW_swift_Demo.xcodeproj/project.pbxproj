@@ -28,6 +28,7 @@
 		0A4EACF61ECD906600A07036 /* JWDynamicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EACF51ECD906600A07036 /* JWDynamicModel.swift */; };
 		0A4EACFB1ECDA27F00A07036 /* JWDynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EACF91ECDA27F00A07036 /* JWDynamicCell.swift */; };
 		0A4EACFC1ECDA27F00A07036 /* JWDynamicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A4EACFA1ECDA27F00A07036 /* JWDynamicCell.xib */; };
+		0A598E221ED2081200EF351D /* JWCarouselScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A598E211ED2081200EF351D /* JWCarouselScrollView.swift */; };
 		0A7BB8FF1EC72EBB005C4C3A /* JWSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7BB8FE1EC72EBA005C4C3A /* JWSearchView.xib */; };
 		0A7BB9051EC754B5005C4C3A /* JWSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BB9041EC754B5005C4C3A /* JWSearchView.swift */; };
 		0A7BB9071EC77B81005C4C3A /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7BB9061EC77B81005C4C3A /* extension.swift */; };
@@ -61,6 +62,7 @@
 		0A4EACF51ECD906600A07036 /* JWDynamicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWDynamicModel.swift; sourceTree = "<group>"; };
 		0A4EACF91ECDA27F00A07036 /* JWDynamicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWDynamicCell.swift; sourceTree = "<group>"; };
 		0A4EACFA1ECDA27F00A07036 /* JWDynamicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWDynamicCell.xib; sourceTree = "<group>"; };
+		0A598E211ED2081200EF351D /* JWCarouselScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWCarouselScrollView.swift; sourceTree = "<group>"; };
 		0A7BB8FE1EC72EBA005C4C3A /* JWSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWSearchView.xib; sourceTree = "<group>"; };
 		0A7BB9041EC754B5005C4C3A /* JWSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWSearchView.swift; sourceTree = "<group>"; };
 		0A7BB9061EC77B81005C4C3A /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		0A3A05181EC33532007B35E6 /* 主要 */ = {
 			isa = PBXGroup;
 			children = (
+				0A598E201ED2081200EF351D /* 无限滚动轮播视图 */,
 				0A7BB9001EC73A19005C4C3A /* 控制器 */,
 				0A7BB9011EC73A19005C4C3A /* 通用控件封装 */,
 				0A3A05191EC33532007B35E6 /* 工具（tool） */,
@@ -288,6 +291,14 @@
 				0A3A05281EC374BC007B35E6 /* JWHTTPManager+Extension.swift */,
 			);
 			path = "网络请求";
+			sourceTree = "<group>";
+		};
+		0A598E201ED2081200EF351D /* 无限滚动轮播视图 */ = {
+			isa = PBXGroup;
+			children = (
+				0A598E211ED2081200EF351D /* JWCarouselScrollView.swift */,
+			);
+			path = "无限滚动轮播视图";
 			sourceTree = "<group>";
 		};
 		0A7BB9001EC73A19005C4C3A /* 控制器 */ = {
@@ -469,6 +480,7 @@
 				0A4EACF61ECD906600A07036 /* JWDynamicModel.swift in Sources */,
 				0A3A052E1EC374EA007B35E6 /* HouseListViewModel.swift in Sources */,
 				0A3A05441EC43964007B35E6 /* JWHomeHouseCell.swift in Sources */,
+				0A598E221ED2081200EF351D /* JWCarouselScrollView.swift in Sources */,
 				0A9565151EC86A580020E30B /* JWHouseDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

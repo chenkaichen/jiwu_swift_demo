@@ -21,11 +21,11 @@ class JWHouseDetailViewModel{
                 return
             }
             
-            let tempJson = try? JSONSerialization.jsonObject(with: (tempModel.fname?.data(using: .utf8))!, options: JSONSerialization.ReadingOptions.mutableLeaves)
-            
-            let pics = NSArray.yy_modelArray(with: JWHouseDetailPicModel.self, json: tempJson!)
-            
-            tempModel.houseDetailPicS = pics as? [JWHouseDetailPicModel]
+//            let tempJson = try? JSONSerialization.jsonObject(with: (tempModel.fname?.data(using: .utf8))!, options: JSONSerialization.ReadingOptions.mutableLeaves)
+//            
+//            let pics = NSArray.yy_modelArray(with: JWHouseDetailPicModel.self, json: tempJson!)
+//            
+//            tempModel.houseDetailPicS = pics as? [JWHouseDetailPicModel]
             
             self.houseDetailModel = tempModel
             

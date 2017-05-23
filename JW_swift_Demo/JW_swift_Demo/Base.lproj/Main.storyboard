@@ -107,7 +107,7 @@
                                     <constraint firstAttribute="height" constant="49" id="9oo-GX-eGL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NZ-di-dKq">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NZ-di-dKq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <color key="backgroundColor" red="0.27450981740000002" green="0.48627451059999999" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -248,7 +248,7 @@
         <scene sceneID="OM6-d9-OB3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cca-gJ-uHP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" id="pzv-jg-aSA"/>
+                    <tabBarItem key="tabBarItem" title="我" image="首-bot-我1" selectedImage="首-bot-我2" id="pzv-jg-aSA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="caB-IC-3Nl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -265,7 +265,7 @@
         <scene sceneID="O9c-2P-oxs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O7E-aj-I4G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="动态" id="2Jn-qd-zzM"/>
+                    <tabBarItem key="tabBarItem" title="动态" image="首-bot-动态1" selectedImage="首-bot-动态2" id="2Jn-qd-zzM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I0U-ys-KHU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -282,7 +282,7 @@
         <scene sceneID="KhR-fU-BK2">
             <objects>
                 <navigationController id="8qY-AT-GQj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" id="hMP-7o-gki"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="首-bot-首页1" selectedImage="首-bot-首页2" id="hMP-7o-gki"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sJy-Pm-Sfa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -332,7 +332,7 @@
         <scene sceneID="Gvq-Hx-MDs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aBG-JF-q48" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="信息" id="wDH-UH-WC5"/>
+                    <tabBarItem key="tabBarItem" title="信息" image="首-bot-客户1" selectedImage="首-bot-客户2" id="wDH-UH-WC5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMl-zV-wCs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -346,5 +346,15 @@
             <point key="canvasLocation" x="-138" y="-384"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="首-bot-动态1" width="20" height="20"/>
+        <image name="首-bot-动态2" width="20" height="20"/>
+        <image name="首-bot-客户1" width="20" height="20"/>
+        <image name="首-bot-客户2" width="20" height="20"/>
+        <image name="首-bot-我1" width="20" height="20"/>
+        <image name="首-bot-我2" width="20" height="20"/>
+        <image name="首-bot-首页1" width="20" height="20"/>
+        <image name="首-bot-首页2" width="20" height="20"/>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

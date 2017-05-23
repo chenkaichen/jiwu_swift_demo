@@ -20,7 +20,8 @@ class JWDynamicCell: UITableViewCell {
     
         didSet{
             
-            headImageView.sd_setImage(with: URL(string: (model?.personpath)!))
+            headImageView.sd_setImage(with: URL(string: (model?.personpath)!), placeholderImage: UIImage(named: "默认头像"))
+            
             tureNameLabel.text = model?.truename
                 roleNameLabel.text = model?.rolename
             timeLabel.text = model?.ctime

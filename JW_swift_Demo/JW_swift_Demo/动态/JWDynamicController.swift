@@ -23,17 +23,16 @@ class JWDynamicController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
+        loadDynamic()
+        
         let header = MJRefreshNormalHeader()
         tableView.mj_header = header
         header.setRefreshingTarget(self, refreshingAction: #selector(loadDynamic))
-        
         
         let footer = MJRefreshAutoGifFooter()
         tableView.mj_footer = footer
         footer.isAutomaticallyRefresh = false
         footer.setRefreshingTarget(self, refreshingAction: #selector(loadMoreDynamic))
-        
-        loadDynamic()
         
     }
     

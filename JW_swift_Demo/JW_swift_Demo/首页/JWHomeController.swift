@@ -12,8 +12,7 @@ import MJRefresh
 
 class JWHomeController: UITableViewController {
     
-    var headScrollView : UIScrollView?
-    var pageControl : UIPageControl?
+    var headScrollView : JWCarouselScrollView?
     
     var searchView : JWSearchView?
     
@@ -21,10 +20,6 @@ class JWHomeController: UITableViewController {
     
     //搜索透明视图
     var transparentView : UIView?
-    
-    var timer : Timer?
-    var pageControPage : Int = 0
-    
     // 获取屏幕宽度
     let viewWidth = UIScreen.main.bounds.width
     // 获取屏幕高度
@@ -44,57 +39,51 @@ class JWHomeController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let footer = MJRefreshAutoGifFooter()
-        
-        tableView.mj_footer = footer
-        footer.isAutomaticallyRefresh = false
-        
-        footer.setRefreshingTarget(self, refreshingAction: #selector(loadDownHouseList))
-        
         loadBannel()
         
         loadSearchView()
         
         loadHouseList()
+        
+        let footer = MJRefreshAutoGifFooter()
+        tableView.mj_footer = footer
+        footer.isAutomaticallyRefresh = false
+        footer.setRefreshingTarget(self, refreshingAction: #selector(loadDownHouseList))
     }
     
     //MARK: 加载广告
     func loadBannel(){
-        //加载视图
+        //加载楼盘列表视图
         tableView.register(UINib.init(nibName: "JWHomeHouseCell", bundle: nil), forCellReuseIdentifier: "JWHomeHouseCell")
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
-        headScrollView = UIScrollView(frame: CGRect(x: 0, y: -bannelViewHeight, width: viewWidth, height: bannelViewHeight))
+        // 广告轮播
+        headScrollView = JWCarouselScrollView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: bannelViewHeight))
+        headScrollView?.blockWithClick = {(clickIndex : Int)->() in
         
-        headScrollView?.delegate = self
-        headScrollView?.showsHorizontalScrollIndicator = false
-        headScrollView?.isPagingEnabled = true
+            print(clickIndex)
+        
+        }
+        
+        
         tableView.contentInset = UIEdgeInsets(top: bannelViewHeight, left: 0, bottom: 0, right: 0)
         tableView.addSubview(headScrollView!)
         
         //从网络请求数据
         bannelViewModel.loadBannelList { (isSuccess) in
             
+            var tempArr = [String]()
+            
             for i in 0 ..< self.bannelViewModel.bannelList.count {
                 
-                let imageView = UIImageView(frame: CGRect(x: self.viewWidth * CGFloat(i), y: 0, width: self.viewWidth, height: self.bannelViewHeight))
-                
-                imageView.sd_setImage(with: URL(string: self.bannelViewModel.bannelList[i].indexBanner!))
-                
-                self.headScrollView?.addSubview(imageView)
+                tempArr.append(self.bannelViewModel.bannelList[i].indexBanner!)
+                tempArr.append(self.bannelViewModel.bannelList[i].indexBanner!)
                 
             }
             
-            self.headScrollView?.contentSize = CGSize(width: Int(self.viewWidth) * self.bannelViewModel.bannelList.count, height: 0)
-            
-            self.pageControl = UIPageControl(frame: CGRect(x: 0, y: -200, width: self.viewWidth, height: 50))
-            
-            self.pageControl?.numberOfPages = self.bannelViewModel.bannelList.count
-            self.pageControl?.currentPageIndicatorTintColor = UIColor.white
-            
-            self.tableView.insertSubview(self.pageControl!, belowSubview: self.searchView!)
-            self.addTimer()
+            self.headScrollView?.imageArray = tempArr
+            self.headScrollView?.isAutoScroll = true
             
         }
     }
@@ -188,44 +177,6 @@ class JWHomeController: UITableViewController {
         }
     }
     
-    //下一页广告
-    func nextBannel(){
-        
-        pageControPage = (pageControl?.currentPage)!
-        
-        if pageControPage == (bannelViewModel.bannelList.count - 1) {
-            pageControPage = 0
-            
-        }else{
-            pageControPage += 1
-            
-        }
-        
-        headScrollView?.setContentOffset(CGPoint(x: CGFloat(pageControPage) * (headScrollView?.bounds.width)!, y: 0), animated: true)
-        
-    }
-    
-    //MARK: 定时器相关
-    func addTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(nextBannel), userInfo: nil, repeats: true)
-        
-    }
-    
-    func removeTimer(){
-        timer?.invalidate()
-        
-    }
-    
-    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        removeTimer()
-        
-    }
-    
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        addTimer()
-        
-    }
-    
     //MARK: 监听scrollView滚动 决定顶部广告的拉伸和 广告视图的滚动
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -254,18 +205,13 @@ class JWHomeController: UITableViewController {
             
             if (scrollY < -bannelViewHeight) {
                 
-                //保证图片始终在最顶部
+                //保证图片始终在最顶部（因为缩放回去的时候顶端会有一点空隙，所以往上移了一点）
                 headScrollView?.y = scrollY - 10
                 
                 //按比例放大图片
                 headScrollView?.transform = CGAffineTransform(scaleX: scale, y: scale)
                 
             }
-        }
-        
-        if scrollView == headScrollView {
-            pageControl?.currentPage = Int((headScrollView?.contentOffset.x)!) / Int(viewWidth)
-            
         }
     }
     
