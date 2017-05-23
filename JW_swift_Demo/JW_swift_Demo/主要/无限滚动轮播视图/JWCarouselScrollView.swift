@@ -83,8 +83,9 @@ class JWCarouselScrollView: UIView,UIScrollViewDelegate {
         
         /// 分页控制
         pageControl = UIPageControl(frame: CGRect(x: 0, y: (scrollViewSize?.height)! -  16, width: (scrollViewSize?.width)!, height: 16))
-        pageControl?.pageIndicatorTintColor = UIColor.white
-        pageControl?.currentPageIndicatorTintColor = UIColor.gray
+        pageControl?.center = (scrollImageView?.center)!
+//        pageControl?.pageIndicatorTintColor = UIColor.white
+        pageControl?.currentPageIndicatorTintColor = UIColor.white
         pageControl?.currentPage = currentIndex
         
         /// 给屏幕中的图片加上点击事件
@@ -100,9 +101,7 @@ class JWCarouselScrollView: UIView,UIScrollViewDelegate {
     
     /// 图片点击
     func imageClick(){
-        
         blockWithClick?(currentIndex)
-        
         
     }
     

@@ -25,7 +25,7 @@ class JWHomeController: UITableViewController {
     // 获取屏幕高度
     let viewHeight = UIScreen.main.bounds.height
     //定义广告视图高度
-    let bannelViewHeight : CGFloat = CGFloat(400)
+    let bannelViewHeight : CGFloat = CGFloat(300)
     
     let bannelViewModel = BannelViewModel()
     let houselistViewModel = HouseListViewModel()
