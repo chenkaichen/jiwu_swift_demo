@@ -25,7 +25,7 @@
                             <constraint firstAttribute="height" constant="10" id="yOB-Vp-7Bj"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像" translatesAutoresizingMaskIntoConstraints="NO" id="hcL-Id-b9P" userLabel="头像">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像" translatesAutoresizingMaskIntoConstraints="NO" id="hcL-Id-b9P" userLabel="头像">
                         <rect key="frame" x="20" y="20" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="93d-aL-vTl"/>
@@ -33,31 +33,31 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxZ-SJ-q6c" userLabel="昵称">
-                        <rect key="frame" x="70" y="22" width="35.5" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="70" y="22" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmc-nw-sGq" userLabel="身份">
-                        <rect key="frame" x="70" y="44.5" width="28.5" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <rect key="frame" x="70" y="46" width="26.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTG-SH-0lF" userLabel="内容">
-                        <rect key="frame" x="70" y="70" width="35.5" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="70" y="70" width="31" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpP-Wg-aVi" userLabel="时间">
-                        <rect key="frame" x="70" y="92" width="28.5" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <rect key="frame" x="70" y="89.5" width="26.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olr-cf-e2s" userLabel="点赞和评论base">
-                        <rect key="frame" x="0.0" y="107" width="380" height="30"/>
+                        <rect key="frame" x="0.0" y="103" width="380" height="30"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezN-vP-nXH">
                                 <rect key="frame" x="340" y="5" width="30" height="20"/>
@@ -89,13 +89,30 @@
                             <constraint firstAttribute="height" constant="30" id="zTw-QY-cRu"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcs-Ws-pIG" userLabel="查看全部按钮">
+                        <rect key="frame" x="302" y="89.5" width="60" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="K3b-lp-qhQ"/>
+                            <constraint firstAttribute="height" constant="20" id="zQ2-Y7-mEt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="查看全文">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" title="收起全文"/>
+                        <connections>
+                            <action selector="showAllButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="g3N-pY-HFO"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="j1a-OI-KQy" secondAttribute="bottom" id="0ZY-Y2-0bZ"/>
                     <constraint firstItem="fxZ-SJ-q6c" firstAttribute="leading" secondItem="hcL-Id-b9P" secondAttribute="trailing" constant="10" id="2WF-9q-kO1"/>
                     <constraint firstItem="hcL-Id-b9P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="5eT-E6-S6Q"/>
                     <constraint firstItem="dmc-nw-sGq" firstAttribute="bottom" secondItem="hcL-Id-b9P" secondAttribute="bottom" constant="-2" id="97X-2n-kbS"/>
+                    <constraint firstItem="Mcs-Ws-pIG" firstAttribute="top" secondItem="aTG-SH-0lF" secondAttribute="bottom" constant="5" id="B0v-Uz-yek"/>
                     <constraint firstItem="olr-cf-e2s" firstAttribute="top" secondItem="HpP-Wg-aVi" secondAttribute="bottom" constant="1.5" id="Cdk-d5-T7O"/>
+                    <constraint firstAttribute="trailing" secondItem="Mcs-Ws-pIG" secondAttribute="trailing" constant="18" id="D9F-Lz-gxe"/>
                     <constraint firstItem="j1a-OI-KQy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="olr-cf-e2s" secondAttribute="bottom" constant="10" id="Rmt-jE-nCu"/>
                     <constraint firstItem="fxZ-SJ-q6c" firstAttribute="top" secondItem="hcL-Id-b9P" secondAttribute="top" constant="2" id="UM1-e2-YQo"/>
                     <constraint firstItem="HpP-Wg-aVi" firstAttribute="top" secondItem="aTG-SH-0lF" secondAttribute="bottom" constant="5" id="Ysj-h2-Bg0"/>
@@ -115,6 +132,7 @@
                 <outlet property="contentLabel" destination="aTG-SH-0lF" id="FuH-l1-z5H"/>
                 <outlet property="headImageView" destination="hcL-Id-b9P" id="Z16-4S-THq"/>
                 <outlet property="roleNameLabel" destination="dmc-nw-sGq" id="8Lb-5t-UWe"/>
+                <outlet property="showAllButton" destination="Mcs-Ws-pIG" id="H5q-1R-k2K"/>
                 <outlet property="timeLabel" destination="HpP-Wg-aVi" id="UHh-0a-Ecv"/>
                 <outlet property="tureNameLabel" destination="fxZ-SJ-q6c" id="6Se-J8-IF1"/>
             </connections>

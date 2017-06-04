@@ -8,11 +8,13 @@
 
 import UIKit
 import WebKit
+import SVProgressHUD
 
-class JWHouseDetailController: UIViewController,WKNavigationDelegate,UIScrollViewDelegate {
+class JWHouseDetailController: JWWebViewController,UIScrollViewDelegate {
 
+    var navigationBaseView : UIView!
+    
     @IBOutlet weak var buildImage: UIImageView!
-    @IBOutlet weak var navigationBaseView: UIView!
     //楼盘详情Id
     var fid : String?
     
@@ -22,63 +24,50 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate,UIScrollVie
     
     let houseDetailViewModel = JWHouseDetailViewModel()
     
-    var deTailwebView : WKWebView?
-    
     var tempArr = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        super.viewWillAppear(animated)
+        
+        for tempView in (navigationController?.navigationBar.subviews)! {
+            if tempView.isMember(of: UIView.self) {
+                
+                navigationBaseView = tempView
+                navigationBaseView.alpha = 0
+            }
+        }
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backUp))
+        initLeftButton()
         
-        deTailwebView = WKWebView(frame: view.frame)
-        deTailwebView?.navigationDelegate = self
-        deTailwebView?.scrollView.delegate = self
-        
-        view.insertSubview(deTailwebView!, belowSubview: navigationBaseView)
-        
-        // 1、设置导航栏标题属性：设置标题颜色
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        
-        // 2、设置导航栏背景图片为透明
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        
-        // 3、设置导航栏阴影图片（去掉黑色分割线）
-        navigationController?.navigationBar.shadowImage = UIImage()
+        JWWebView?.scrollView.delegate = self
         
         houseDetailViewModel.loadHouseHouseDetail(fid: fid!) { (isSuccess) in
             
             self.navigationItem.title = self.houseDetailViewModel.houseDetailModel.bname!
             
-//            self.buildImage.setImageWith(URL(string: self.houseDetailViewModel.houseDetailModel.path!)!)
+            // 加载网页
+            self.loadUrlString(urlString: self.houseDetailViewModel.houseDetailModel.buildpath!)
             
-            self.deTailwebView?.load(URLRequest(url: URL(string: self.houseDetailViewModel.houseDetailModel.buildpath!)!))
+//            let data = NSData.init(contentsOf: URL(string: self.houseDetailViewModel.houseDetailModel.buildpath!)!)
+//            
+//            let html = String.init(data: data! as Data, encoding: .utf8)
+//            
+//            self.JWWebView?.loadHTMLString(html!, baseURL: nil)
             
         }
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK: WKWebView代理
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        
-        let alert = UIAlertView(title: "请求错误", message: error.localizedDescription, delegate: self, cancelButtonTitle: "返回")
-        alert.show()
-        
-    }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    override func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+        super.webView(webView, didFinish: navigation)
         
         webView.evaluateJavaScript("temptop = document.getElementsByClassName('top-pop')[0];temptop.parentNode.removeChild(temptop);", completionHandler: nil)
         
@@ -89,24 +78,27 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate,UIScrollVie
             pages += 1
             
             if pages > 1 {
-                navigationBaseView.alpha = 1
+                navigationBaseView?.alpha = 1
                 webView.scrollView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
             }
         }
         
     }
     
-    func backUp(){
+    override func leftBtnClick(){
         
         if pages > 1 {
             pages -= 1
-            deTailwebView?.goBack()
+            JWWebView?.goBack()
         
             if pages == 1 {
-                deTailwebView?.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                navigationBaseView?.alpha = tempOffsetY / 64.0
+                JWWebView?.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 
+            }else{
+                navigationBaseView?.alpha = 1
+            
             }
-            navigationBaseView.alpha = tempOffsetY / 64.0
             
         }else{
             
@@ -117,7 +109,7 @@ class JWHouseDetailController: UIViewController,WKNavigationDelegate,UIScrollVie
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        // 在详情第一页滚动时隐藏和显示navigationBar的背景
         if pages  == 1 {
             
             tempOffsetY = scrollView.contentOffset.y

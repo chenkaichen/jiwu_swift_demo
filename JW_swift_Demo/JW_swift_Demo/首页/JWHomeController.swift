@@ -12,26 +12,24 @@ import MJRefresh
 
 class JWHomeController: UITableViewController {
     
+    /// 头部广告
     var headScrollView : JWCarouselScrollView?
     
+    /// 搜索
     var searchView : JWSearchView?
-    
-    var homePage : Int64 = 0
     
     //搜索透明视图
     var transparentView : UIView?
-    // 获取屏幕宽度
-    let viewWidth = UIScreen.main.bounds.width
-    // 获取屏幕高度
-    let viewHeight = UIScreen.main.bounds.height
     //定义广告视图高度
     let bannelViewHeight : CGFloat = CGFloat(300)
     
+    /// 广告视图模型
     let bannelViewModel = BannelViewModel()
+    /// 楼盘列表视图模型
     let houselistViewModel = HouseListViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        //隐藏导航栏
         navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
@@ -39,33 +37,35 @@ class JWHomeController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 启动图
+        JWLaunchView.showLaunch(imageUrl: "http://cdn.duitang.com/uploads/item/201408/27/20140827062302_ymAJe.jpeg", showTime: 2)
+        
         loadBannel()
         
         loadSearchView()
         
         loadHouseList()
-        
-        let footer = MJRefreshAutoGifFooter()
-        tableView.mj_footer = footer
-        footer.isAutomaticallyRefresh = false
-        footer.setRefreshingTarget(self, refreshingAction: #selector(loadDownHouseList))
     }
     
     //MARK: 加载广告
+    /// 加载广告
     func loadBannel(){
         //加载楼盘列表视图
         tableView.register(UINib.init(nibName: "JWHomeHouseCell", bundle: nil), forCellReuseIdentifier: "JWHomeHouseCell")
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
         
+        
         // 广告轮播
         headScrollView = JWCarouselScrollView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: bannelViewHeight))
         headScrollView?.blockWithClick = {(clickIndex : Int)->() in
-        
-            print(clickIndex)
-        
+            
+            let webView = JWBannalController()
+            webView.urlString = self.bannelViewModel.bannelList[clickIndex].bannerUrl
+            self.navigationController?.pushViewController(webView, animated: true)
+            
+            
         }
-        
         
         tableView.contentInset = UIEdgeInsets(top: bannelViewHeight, left: 0, bottom: 0, right: 0)
         tableView.addSubview(headScrollView!)
@@ -78,8 +78,6 @@ class JWHomeController: UITableViewController {
             for i in 0 ..< self.bannelViewModel.bannelList.count {
                 
                 tempArr.append(self.bannelViewModel.bannelList[i].indexBanner!)
-                tempArr.append(self.bannelViewModel.bannelList[i].indexBanner!)
-                
             }
             
             self.headScrollView?.imageArray = tempArr
@@ -88,7 +86,7 @@ class JWHomeController: UITableViewController {
         }
     }
     
-    //加载搜索视图
+    //／ 加载搜索视图
     func loadSearchView(){
         
         //        let queue = DispatchQueue(label: "addSearchView")
@@ -140,7 +138,6 @@ class JWHomeController: UITableViewController {
                 alterViewController.show()
                 
             }
-            
         }
     }
     
@@ -154,24 +151,37 @@ class JWHomeController: UITableViewController {
     }
     
     //MARK: 加载楼盘
+    /// 加载楼盘
     func loadHouseList(){
         
-        houselistViewModel.loadHouseList(page: homePage) { (isSuccess) in
+        houselistViewModel.loadHouseList() { (isSuccess) in
             
             self.tableView.reloadData()
             
+            self.initLoadMoreFooterView()
         }
     }
     
+    func initLoadMoreFooterView(){
+    
+        if tableView.mj_footer != nil {
+            return
+        }
+        
+        let footer = MJRefreshAutoGifFooter()
+        footer.isAutomaticallyRefresh = false
+        footer.setRefreshingTarget(self, refreshingAction: #selector(loadMoreHouseList))
+        tableView?.mj_footer = footer
+    
+    
+    }
+    
     //上拉加载
-    func loadDownHouseList(){
+    func loadMoreHouseList(){
         
-        homePage += 1
-        
-        houselistViewModel.loadHouseList(page: homePage) { (isSuccess) in
+        houselistViewModel.loadHouseList() { (isSuccess) in
             
             self.tableView.reloadData()
-            
             self.tableView.mj_footer.endRefreshing()
             
         }
@@ -218,7 +228,7 @@ class JWHomeController: UITableViewController {
     //跳转传值
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        (segue.destination as! JWHouseDetailController).fid = (sender as? HouseListModel)?.fid
+        (segue.destination as! JWHouseDetailController).fid = (sender as? JWHouseViewModel)?.houseModel.fid
     }
     
     //MARK: - Table view data source
@@ -229,7 +239,7 @@ class JWHomeController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : JWHomeHouseCell = tableView.dequeueReusableCell(withIdentifier: "JWHomeHouseCell", for: indexPath) as! JWHomeHouseCell
         
-        cell.houseModel = houselistViewModel.houseList[indexPath.row]
+        cell.houseViewModel = houselistViewModel.houseList[indexPath.row]
         
         return cell
     }

@@ -3,3 +3,4 @@
 //
 
 #import <YYModel/YYModel.h>
+#import "WXApi.h"

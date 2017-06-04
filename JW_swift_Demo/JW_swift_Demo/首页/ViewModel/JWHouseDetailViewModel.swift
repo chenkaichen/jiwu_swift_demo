@@ -10,6 +10,11 @@ class JWHouseDetailViewModel{
     
     var houseDetailModel = JWHouseDetailModel()
     
+    /// 加载楼盘详情
+    ///
+    /// - Parameters:
+    ///   - fid: 楼盘详情Id
+    ///   - completion: 是否成功
     func loadHouseHouseDetail(fid : String, completion:@escaping (_ isSuccess: Bool) ->()){
         
         JWHTTPManager.sharedRequest.houseDetailRequest(fid: fid) { (houseDetail, isSuccess) in
@@ -20,12 +25,6 @@ class JWHouseDetailViewModel{
                 
                 return
             }
-            
-//            let tempJson = try? JSONSerialization.jsonObject(with: (tempModel.fname?.data(using: .utf8))!, options: JSONSerialization.ReadingOptions.mutableLeaves)
-//            
-//            let pics = NSArray.yy_modelArray(with: JWHouseDetailPicModel.self, json: tempJson!)
-//            
-//            tempModel.houseDetailPicS = pics as? [JWHouseDetailPicModel]
             
             self.houseDetailModel = tempModel
             

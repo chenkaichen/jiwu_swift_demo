@@ -8,17 +8,36 @@
 
 class HouseListViewModel {
     
-    lazy var houseList = [HouseListModel]()
+    lazy var houseList = [JWHouseViewModel]()
     
-    func loadHouseList(page : Int64, completion:@escaping (_ isSuccess: Bool) ->()){
+    private var page : Int64 = 1
+    
+    func loadHouseList(completion:@escaping (_ isSuccess: Bool) ->()){
+        
+        page += 1
         
         JWHTTPManager.sharedRequest.houseListRequest(page: page) { (list, isSuccess) in
             
-            guard let array = NSArray.yy_modelArray(with: HouseListModel.self, json: list) as? [HouseListModel] else {
-                completion(isSuccess)
+            if !isSuccess {
                 
+                completion(false)
                 return
             }
+            
+            var array = [JWHouseViewModel]()
+            
+            for dict in list {
+                
+                let model = HouseListModel()
+                
+                model.yy_modelSet(with: dict)
+                
+                let viewModel = JWHouseViewModel(model: model)
+                
+                array.append(viewModel)
+                
+            }
+            
             self.houseList += array
             
             completion(isSuccess)

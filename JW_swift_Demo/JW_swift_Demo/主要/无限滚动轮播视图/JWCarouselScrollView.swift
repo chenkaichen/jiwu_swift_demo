@@ -23,6 +23,7 @@ class JWCarouselScrollView: UIView,UIScrollViewDelegate {
     /// 定时器
     private var timer : Timer?
     
+    /// 图片点击回调
     var blockWithClick : ((Int) -> ())?
     
     /// 设定自动滚动间隔(不能小于0.5)
@@ -35,24 +36,34 @@ class JWCarouselScrollView: UIView,UIScrollViewDelegate {
         }
     }
     
-    /// 自动轮播，默认三秒
-    var isAutoScroll : Bool?{
+    /// 装图片URL的数组
+    var imageArray : [String]? {
         
         didSet{
-            if isAutoScroll == true{
-                autoScrollDeley = 3
+            
+            if imageArray?.count == 0 {
+                scrollImageView?.isScrollEnabled = false
+                
+            }else if imageArray?.count == 1 {
+                self.setOnlyImage()
+                scrollImageView?.isScrollEnabled = false
+                
+            }else{
+                pageControl?.numberOfPages = (imageArray?.count)!
+                self.changeImage(left: imageArray!.count - 1, middle: currentIndex, right: 1)
                 
             }
         }
     }
     
-    /// 装图片URL的数组
-    var imageArray : [String]? {
+    /// 自动轮播，默认三秒
+    var isAutoScroll : Bool?{
         
         didSet{
-            pageControl?.numberOfPages = (imageArray?.count)!
-            self.changeImage(left: imageArray!.count - 1, middle: currentIndex, right: 1)
-            
+            if isAutoScroll == true && (imageArray?.count)! > 1{
+                autoScrollDeley = 3
+                
+            }
         }
     }
     
@@ -84,9 +95,9 @@ class JWCarouselScrollView: UIView,UIScrollViewDelegate {
         /// 分页控制
         pageControl = UIPageControl(frame: CGRect(x: 0, y: (scrollViewSize?.height)! -  16, width: (scrollViewSize?.width)!, height: 16))
         pageControl?.center = (scrollImageView?.center)!
-//        pageControl?.pageIndicatorTintColor = UIColor.white
         pageControl?.currentPageIndicatorTintColor = UIColor.white
         pageControl?.currentPage = currentIndex
+        pageControl?.isUserInteractionEnabled = false
         
         /// 给屏幕中的图片加上点击事件
         middleImageView?.isUserInteractionEnabled = true
@@ -191,13 +202,20 @@ class JWCarouselScrollView: UIView,UIScrollViewDelegate {
     
     func changeImage(left : Int , middle : Int , right : Int){
         //给重用的三个imageView附上图片
-        leftImageView?.sd_setImage(with: URL(string: imageArray![left]))
-        middleImageView?.sd_setImage(with: URL(string: imageArray![middle]))
-        rightImageView?.sd_setImage(with: URL(string: imageArray![right]))
+        leftImageView?.ckc_setImage(urlString: imageArray![left])
+        middleImageView?.ckc_setImage(urlString: imageArray![middle])
+        rightImageView?.ckc_setImage(urlString: imageArray![right])
         
         //为了方便计算，显示在屏幕的其实是第二张图片
-        scrollImageView?.setContentOffset(CGPoint(x:(scrollImageView?.width)!,y:0), animated: false)
+        scrollImageView?.setContentOffset(CGPoint(x: (scrollImageView?.width)!, y: 0), animated: false)
         
+    }
+    
+    /// 只有一张图片
+    func setOnlyImage(){
+        middleImageView?.ckc_setImage(urlString: imageArray![0])
+        scrollImageView?.setContentOffset(CGPoint(x: (scrollImageView?.width)!, y: 0), animated: false)
+    
     }
     
     required init?(coder aDecoder: NSCoder) {

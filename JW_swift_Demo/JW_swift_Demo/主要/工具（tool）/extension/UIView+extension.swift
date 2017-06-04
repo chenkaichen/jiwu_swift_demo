@@ -125,7 +125,7 @@ extension UIView{
         }
     }
     
-    //coordinate
+    //新坐标
     var coordinate : CGPoint{
         
         get {
@@ -137,6 +137,23 @@ extension UIView{
             var tempFrame : CGRect = frame
             tempFrame.origin.x = newValue.x
             tempFrame.origin.y = newValue.y
+            frame = tempFrame
+            
+        }
+    }
+    
+    //新大小
+    var sizeOfNew : CGSize{
+        
+        get {
+            return frame.size
+            
+        }
+        
+        set(newValue) {
+            var tempFrame : CGRect = frame
+            tempFrame.size.width = newValue.width
+            tempFrame.size.height = newValue.height
             frame = tempFrame
             
         }
